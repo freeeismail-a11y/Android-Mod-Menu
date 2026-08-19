@@ -32,8 +32,3 @@ void* hack_thread(void*) {
     return NULL;
 }
 
-JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
-    pthread_t ptid;
-    pthread_create(&ptid, NULL, hack_thread, NULL);
-    return JNI_VERSION_1_4;
-}
