@@ -17,14 +17,17 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Build Native Libraries
+    - name: Build with Gradle
       run: |
         chmod +x gradlew
-        ./gradlew nativeBuildDebug
+        ./gradlew assembleDebug
 
     - name: Upload Shared Library
       uses: actions/upload-artifact@v4
       with:
         name: ModMenu-So
-        path: app/libs/**/*.so
-        
+        path: |
+          app/build/intermediates/cmake/debug/obj/**/*.so
+          app/build/outputs/**/*.so
+          app/libs/**/*.so
+          
