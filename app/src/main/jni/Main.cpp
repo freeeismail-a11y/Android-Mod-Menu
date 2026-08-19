@@ -1,4 +1,6 @@
 #include <jni.h>
+#include <dlfcn.h>
+#include <pthread.h>
 #include <unistd.h>
 
 // Hooking function example
