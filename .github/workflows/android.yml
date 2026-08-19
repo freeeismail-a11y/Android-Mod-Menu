@@ -25,12 +25,9 @@ jobs:
     - name: Build with Gradle
       run: gradle assembleDebug
 
-    - name: Upload Shared Library
+    - name: Upload SO File
       uses: actions/upload-artifact@v4
       with:
         name: ModMenu-So
-        path: |
-          app/build/intermediates/cmake/debug/obj/**/*.so
-          app/build/outputs/**/*.so
-          app/libs/**/*.so
-          
+        path: app/build/intermediates/cxx/Debug/*/obj/local/arm64-v8a/libMyLibName.so
+        
