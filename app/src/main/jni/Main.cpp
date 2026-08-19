@@ -32,3 +32,30 @@ void* hack_thread(void*) {
     return NULL;
 }
 
+jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
+    jobjectArray ret;
+    
+    
+    const char *features[] = {
+        "1_Toggle_No Recoil", 
+        "2_Category_Features"
+    };
+
+    int Total_Length = sizeof(features) / sizeof(features[0]);
+
+    ret = (jobjectArray)env->NewObjectArray(Total_Length, env->FindClass("java/lang/String"), env->NewStringUTF(""));
+    for (int i = 0; i < Total_Length; i++) {
+        env->SetObjectArrayElement(ret, i, env->NewStringUTF(features[i]));
+    }
+    
+    return ret;
+}
+void Changes(JNIEnv *env, jclass clazz, jobject obj, jint featNum, jstring featName, jint value, jlong lon, jboolean boolVal, jstring strVal) {
+    switch (featNum) {
+        case 1:
+            // Code for the first button
+            break;
+        default:
+            break;
+    }
+}
